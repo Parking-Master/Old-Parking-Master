@@ -1,0 +1,70 @@
+canvas {
+  position: absolute;
+  left: 50%;
+  margin-left: -300px;
+  background: #fff;
+  top: 50% !important;
+  margin-top: -200px;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+}
+.collapsible {
+  position: relative;
+  left: 50%;
+  margin-left: -50.9165px;
+}
+.content {
+  position: relative;
+  display: none;
+  width: 500px;
+  left: 50%;
+  margin-left: -250px;
+}
+body {
+  background-image: url(https://cdn.jsdelivr.net/gh/Parking-Master/Parking-Master/img/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.buttonDrive, .buttonReverse, .buttonPark {
+  position: absolute !important;
+  left: 60vw !important;
+}
+button {
+  background: #fff;
+  border: 1.5px solid #000;
+}
+#arrowright {
+  position: absolute;
+  left: 57vw;
+  top: 70.8%;
+}
+#arrowleft {
+  position: absolute;
+  left: 54vw;
+  top: 70.8%;
+}
+#arrowright, #arrowleft {
+  border: 1.45px solid currentColor;
+  transform: scale(1.2);
+}
+#speedstatus {
+  position: absolute;
+  top: 70%;
+  left: 30%;
+  font-family: monospace;
+  font-size: 20px;
+}
+#Next-LevelBtn {
+  position: absolute;
+  border: 1.5px solid red;
+  padding: 1.5px;
+  background: #fff;
+  color: #000 !important;
+  text-decoration: none;
+  display: none;
+  left: 30%;
+  margin-top: 50px;
+}
+

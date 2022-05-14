@@ -1,0 +1,236 @@
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width" />
+
+  <head>
+    <title>Parking Master LVL. 1</title>
+  </head>
+
+<body>
+  <h3 id="header-style">Parking Master</h3>
+  <button type="button" class="collapsible"><p class="paraGraph1">How to play: <span id="spanner">&#9660</span></button>
+<div class="content">
+  <ol id="directions">
+    <p>1. drive into the Outlined Square</p>
+    <p>2. do not crash through the process or the game ends!</p>
+    <p>3. press "<span><button style="position: relative; top: -3px; color: #000000; border: 0.9px double #000000; width: 1.2em; height: 1.2em;"><span style="position: absolute; left: 4px;top: 0px; font-size: 0.6em;">Park</span></button></span>" when you parked in the correct spot.</p>
+  </ol>
+</div>
+</body>
+<link rel="stylesheet" href="style.css">
+<!--Game-->
+<div unselectable="on">
+<canvas id="myCanvas" width="600" height="400" style="border:3px solid #FF0000;">
+  Your browser does not support the canvas element.
+</canvas>
+</div>
+<div id="hidebuttons">
+<button style="position:absolute;left:550px;top:577px;" class="buttonDrive" onmousedown="mouseDown()" onmouseup="mouseUp()">Drive&nbsp&#8594</button>
+
+<button class="buttonPark" onclick="parkDetector()" style="position: absolute;left: 550px; top: 485px;"><strong>Park&nbsp&#10003</strong></button>
+</div>
+  <script>
+var canvas = document.getElementById('myCanvas'),
+      ctx = canvas.getContext('2d');
+function drawSpot(draw) {
+ctx.fillText("spawn here",10, 70);
+}
+drawSpot();
+ var canvas = document.getElementById('myCanvas'),
+      ctx = canvas.getContext('2d');
+function parkinglot(draw) {
+ctx.fillRect(590, 0, 10, canvas.height);
+ctx.fillRect(450, 0, 140, 10);
+ctx.fillRect(450, 90, 140, 10);
+ctx.fillRect(450, 180, 140, 10);
+// outline
+ctx.fillStyle = '#00FF00';
+ctx.fillRect(450, 270, 20, 10);
+ctx.fillRect(480, 270, 20, 10);
+ctx.fillRect(510, 270, 20, 10);
+ctx.fillRect(540, 270, 20, 10);
+ctx.fillRect(570, 270, 20, 10);
+
+ctx.fillStyle = '#00FF00';
+ctx.fillRect(450, 360, 20, 10);
+ctx.fillRect(480, 360, 20, 10);
+ctx.fillRect(510, 360, 20, 10);
+ctx.fillRect(540, 360, 20, 10);
+ctx.fillRect(570, 360, 20, 10);
+}
+  function parkDetector() {
+    if (y > 280 && y < 300 && x > 460) {
+      // If the car Parked in the correct spot
+      carIsParked();
+    }
+    if (y < 281 && x < 500) {
+      carIsNotParked();
+  }
+function carIsParked() {
+    alert("You Parked!");
+    document.getElementById("Next-LevelBtn").innerHTML = '<a id="nextlevel" href="lvl2.html">Next Level&nbsp&#10547</a>';
+    document.getElementById("Next-LevelBtn").style.display = "inline-block";
+  }
+    function carIsNotParked() {
+      alert("You didn't park");
+    }
+  }
+
+parkinglot(draw);
+
+    var canvas = document.getElementById('myCanvas'),
+      ctx = canvas.getContext('2d'),
+      last = performance.now(),
+      x = 0,
+      animate;
+var y = 20;
+function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.rect(x, y, 110,65);
+      ctx.rect(x + 5, y + 58, 30,10);
+      ctx.rect(x + 75, y + 58, 30,10)
+      ctx.rect(x + 5, y - 3, 30,10);
+      ctx.rect(x + 75, y -3, 30,10)
+      ctx.fillStyle = "#000000";
+      ctx.fill();
+      x += 5;
+      animate = requestAnimationFrame(draw);
+if (x > 500) {
+GameOver();
+}
+parkinglot(draw);
+document.getElementById("speedbar").innerHTML = '5';
+};
+
+var canvas = document.getElementById('myCanvas'),
+      ctx = canvas.getContext('2d'),
+      last = performance.now(),
+      x = 0,
+      animate;
+var y = 20;
+ function mouseRightDown(draw) {
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.rect(x, y, 110,65);
+      ctx.rect(x + 5, y + 58, 30,10);
+      ctx.rect(x + 75, y + 58, 30,10)
+      ctx.rect(x + 5, y - 3, 30,10);
+      ctx.rect(x + 75, y -3, 30,10)
+      ctx.fillStyle = "#000000";
+      ctx.fill();
+      y += 1.5;
+      x += 0.3;
+if (y > canvas.height - 66) {
+GameOver();
+}
+      animate2 = requestAnimationFrame(mouseRightDown);
+parkinglot(draw);
+}
+var canvas = document.getElementById('myCanvas'),
+      ctx = canvas.getContext('2d'),
+      last = performance.now(),
+      x = 0,
+      animate;
+var y = 20;
+ function mouseLeftDown(draw) {
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.rect(x, y, 110,65);
+      ctx.rect(x + 5, y + 58, 30,10);
+      ctx.rect(x + 75, y + 58, 30,10)
+      ctx.rect(x + 5, y - 3, 30,10);
+      ctx.rect(x + 75, y -3, 30,10)
+      ctx.fillStyle = "#000000";
+      ctx.fill();
+      y += -1.5;
+      x += 0.3;
+if (y < -1) {
+GameOver();
+}
+      animate3 = requestAnimationFrame(mouseLeftDown);
+parkinglot(draw);
+}
+var canvas = document.getElementById('myCanvas'),
+      ctx = canvas.getContext('2d'),
+      last = performance.now(),
+      x = 0,
+      animate;
+var y = 20;
+ function mouseReverseDown(draw) {
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.rect(x, y, 110,65);
+      ctx.rect(x + 5, y + 58, 30,10);
+      ctx.rect(x + 75, y + 58, 30,10)
+      ctx.rect(x + 5, y - 3, 30,10);
+      ctx.rect(x + 75, y -3, 30,10)
+      ctx.fillStyle = "#000000";
+      ctx.fill();
+      x += -4;
+if (x < -2) {
+GameOver();
+}
+      animate4 = requestAnimationFrame(mouseReverseDown);
+parkinglot(draw);
+}
+function GameOver() {
+var gameOverAlert = alert("Game Over");
+var gameOverAlert = false;
+
+document.getElementById("status-button-bar").innerHTML = '';
+var gameOverAlert = true;
+if (gameOverAlert == true); {
+var gameOverAlert = false;
+}
+window.location.href = "./";
+document.getElementById("hidebuttons").innerHTML = '';
+}
+</script>
+<!-- Status Bar -->
+<div id="status-button-bar">
+<div id="speedstatus"><span id="speedbar">0</span><span id="mph">&nbspMPH</span></div>
+<button onmousedown="mouseRightDown()" onmouseup="mouseRightUp()" id="arrowright">&rightarrow;</button>
+<button onmousedown="mouseLeftDown()" onmouseup="mouseLeftUp()" id="arrowleft">&leftarrow;</button>
+<button style="position:absolute;left:550px;top:540px;" class="buttonReverse" onmousedown="mouseReverseDown()" onmouseup="mouseReverseUp()">Reverse&nbsp&#8592;</button>
+<span id="Next-LevelBtn"></span>
+</div>
+<script>
+var coll=document.getElementsByClassName("collapsible");var i;for (i = 0; i < coll.length; i++) {coll[i].addEventListener("click", function() {this.classList.toggle("active");var content = this.nextElementSibling;if (content.style.display === "block") {content.style.display = "none";} else {content.style.display = "block";
+    }
+  });
+}
+
+  // Direct the car
+  var p = '<div></div>';
+  // Redirect to Next Level
+  function nextLevel() {
+    window.location.href = "lvl2.html";
+console.log("level completed");
+  }
+
+  function mouseUp() {
+document.getElementById("speedbar").innerHTML = '0';
+    cancelAnimationFrame(animate); 
+console.log ("car stopped");
+// if the "Drive" button is let go of, cancel the animation
+  }
+
+  function mouseDown() {
+    requestAnimationFrame(draw);
+console.log("car moved");
+    // if "Drive" is pressed, draw the animation
+  }
+function mouseRightUp() {
+   cancelAnimationFrame(animate2); 
+  }
+function mouseLeftUp() {
+   cancelAnimationFrame(animate3); 
+  }
+function mouseReverseUp() {
+   cancelAnimationFrame(animate4); 
+  }
+</script>
+<!-- Reserved -->
+<script>
+</script>
